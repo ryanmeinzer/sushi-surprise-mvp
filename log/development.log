@@ -19519,3 +19519,811 @@ Processing by OrdersController#show as HTML
 Completed 200 OK in 33ms (Views: 28.0ms | ActiveRecord: 0.6ms | Allocations: 11488)
 
 
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE DATABASE "myapp_development" ENCODING = 'utf8'[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'utf8'[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (3.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "customers" CASCADE[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "customers" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "oceans" CASCADE[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "oceans" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "img_url" character varying)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "orders" CASCADE[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "customer_id" integer, "sushi_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "reviews" CASCADE[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" bigserial primary key, "customer_id" integer, "sushi_id" integer, "rating" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "sushis" CASCADE[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "sushis" ("id" bigserial primary key, "name" character varying, "img_url" character varying, "ocean_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "3d82018c795853f1ddf0e8750772aa5614ab6177"], ["created_at", "2020-05-28 18:38:42.766894"], ["updated_at", "2020-05-28 18:38:42.766894"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "customers" CASCADE[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "customers" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "oceans" CASCADE[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "oceans" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "img_url" character varying)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "orders" CASCADE[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "customer_id" integer, "sushi_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "reviews" CASCADE[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" bigserial primary key, "customer_id" integer, "sushi_id" integer, "rating" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "sushis" CASCADE[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "sushis" ("id" bigserial primary key, "name" character varying, "img_url" character varying, "ocean_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200528011111)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200526155106),
+(20200526155109),
+(20200526155152),
+(20200526155158),
+(20200526155204);
+
+[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-05-28 18:38:42.821305"], ["updated_at", "2020-05-28 18:38:42.821305"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-05-28 18:38:42.826508"], ["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "3d82018c795853f1ddf0e8750772aa5614ab6177"], ["created_at", "2020-05-28 18:38:42.832622"], ["updated_at", "2020-05-28 18:38:42.832622"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mOcean Load (0.5ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[36mSushi Load (0.7ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Create (0.8ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Johnny"], ["created_at", "2020-05-28 18:38:42.920670"], ["updated_at", "2020-05-28 18:38:42.920670"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Create (0.2ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Suzy"], ["created_at", "2020-05-28 18:38:42.927879"], ["updated_at", "2020-05-28 18:38:42.927879"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Mary"], ["created_at", "2020-05-28 18:38:42.931196"], ["updated_at", "2020-05-28 18:38:42.931196"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Create (0.2ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Billy"], ["created_at", "2020-05-28 18:38:42.934415"], ["updated_at", "2020-05-28 18:38:42.934415"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Create (0.2ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Milly"], ["created_at", "2020-05-28 18:38:42.938085"], ["updated_at", "2020-05-28 18:38:42.938085"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Create (0.4ms)[0m  [1m[32mINSERT INTO "oceans" ("name", "created_at", "updated_at", "img_url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "North Atlantic Ocean"], ["created_at", "2020-05-28 18:38:42.952302"], ["updated_at", "2020-05-28 18:38:42.952302"], ["img_url", "https://www.carbonbrief.org/wp-content/uploads/2018/04/north-atlantic-ocean-1.jpg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Create (0.2ms)[0m  [1m[32mINSERT INTO "oceans" ("name", "created_at", "updated_at", "img_url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "South Atlantic Ocean"], ["created_at", "2020-05-28 18:38:42.955223"], ["updated_at", "2020-05-28 18:38:42.955223"], ["img_url", "https://30a.com/wp-content/uploads/2018/05/untitled-design-425.jpg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Create (0.2ms)[0m  [1m[32mINSERT INTO "oceans" ("name", "created_at", "updated_at", "img_url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "North Pacific Ocean"], ["created_at", "2020-05-28 18:38:42.957866"], ["updated_at", "2020-05-28 18:38:42.957866"], ["img_url", "https://images.glaciermedia.ca/polopoly_fs/1.22782394.1505678749!/fileImage/httpImage/image.jpg_gen/derivatives/landscape_804/2017091718-jpg.jpg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Create (0.3ms)[0m  [1m[32mINSERT INTO "oceans" ("name", "created_at", "updated_at", "img_url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "South Pacific Ocean"], ["created_at", "2020-05-28 18:38:42.960884"], ["updated_at", "2020-05-28 18:38:42.960884"], ["img_url", "https://c.stocksy.com/a/Z27900/z9/2172019.jpg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Create (0.2ms)[0m  [1m[32mINSERT INTO "oceans" ("name", "created_at", "updated_at", "img_url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Artic Ocean"], ["created_at", "2020-05-28 18:38:42.963896"], ["updated_at", "2020-05-28 18:38:42.963896"], ["img_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Arctic_ice.jpg/1200px-Arctic_ice.jpg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Create (0.2ms)[0m  [1m[32mINSERT INTO "oceans" ("name", "created_at", "updated_at", "img_url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Indian Ocean"], ["created_at", "2020-05-28 18:38:42.967072"], ["updated_at", "2020-05-28 18:38:42.967072"], ["img_url", "https://upload.wikimedia.org/wikipedia/commons/1/13/2016_Margaret_River_Australia_-_indian_ocean.jpg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Create (0.3ms)[0m  [1m[32mINSERT INTO "oceans" ("name", "created_at", "updated_at", "img_url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Antarctic Ocean"], ["created_at", "2020-05-28 18:38:42.969785"], ["updated_at", "2020-05-28 18:38:42.969785"], ["img_url", "https://d1hbkx7j13ujdz.cloudfront.net/wp-content/uploads/2018/08/Lets-Explore-the-Antarctic-Ocean-1024x683.jpg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.4ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Yummy Salmon Tummy"], ["img_url", "https://i.redd.it/12cdw2wb55p01.jpg"], ["ocean_id", 7], ["created_at", "2020-05-28 18:38:42.983029"], ["updated_at", "2020-05-28 18:38:42.983029"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Una Tuna"], ["img_url", "https://media-cdn.tripadvisor.com/media/photo-s/06/7e/7b/f0/tuna-nigiri.jpg"], ["ocean_id", 1], ["created_at", "2020-05-28 18:38:42.988102"], ["updated_at", "2020-05-28 18:38:42.988102"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.3ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Eel Meal"], ["img_url", "https://media.gettyimages.com/photos/two-pieces-of-eel-nigiri-sushi-picture-id149058086?s=2048x2048"], ["ocean_id", 5], ["created_at", "2020-05-28 18:38:42.992919"], ["updated_at", "2020-05-28 18:38:42.992919"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Simply Shrimpy"], ["img_url", "https://wfg22p.s3.amazonaws.com/media/dishes/ebi_nigiri_sushi_576-reg.jpg"], ["ocean_id", 1], ["created_at", "2020-05-28 18:38:42.997559"], ["updated_at", "2020-05-28 18:38:42.997559"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.1ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Crab Nab"], ["img_url", "https://sushimi.co.za/wp-content/uploads/2017/09/Nigiri-crab.jpg"], ["ocean_id", 4], ["created_at", "2020-05-28 18:38:43.001889"], ["updated_at", "2020-05-28 18:38:43.001889"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Salmon Roe"], ["img_url", "https://upload.wikimedia.org/wikipedia/commons/8/8f/Salmon_roe_gunkanmaki_of_Moriya_Sakanaya_Uohei.jpg"], ["ocean_id", 6], ["created_at", "2020-05-28 18:38:43.006199"], ["updated_at", "2020-05-28 18:38:43.006199"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.3ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Sea Urchin"], ["img_url", "https://planomagazine.com/wp-content/uploads/2017/09/Uni-Sushi-Plano-Magazine-5.jpg"], ["ocean_id", 1], ["created_at", "2020-05-28 18:38:43.010680"], ["updated_at", "2020-05-28 18:38:43.010680"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Young Yellowtail"], ["img_url", "https://previews.123rf.com/images/andreyst/andreyst1204/andreyst120402361/13126260-closeup-of-a-young-yellow-tail-sushi.jpg"], ["ocean_id", 4], ["created_at", "2020-05-28 18:38:43.015773"], ["updated_at", "2020-05-28 18:38:43.015773"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Amaebi"], ["img_url", "https://i0.wp.com/www.sushifaq.com/wp-content/uploads/2013/07/amaebi.jpg"], ["ocean_id", 4], ["created_at", "2020-05-28 18:38:43.020569"], ["updated_at", "2020-05-28 18:38:43.020569"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Squid"], ["img_url", "https://thumbs.dreamstime.com/z/ika-sushi-17455010.jpg"], ["ocean_id", 1], ["created_at", "2020-05-28 18:38:43.025836"], ["updated_at", "2020-05-28 18:38:43.025836"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.1ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Anago"], ["img_url", "https://media-cdn.tripadvisor.com/media/photo-s/06/ba/c6/f8/itacho-sushi.jpg"], ["ocean_id", 6], ["created_at", "2020-05-28 18:38:43.030435"], ["updated_at", "2020-05-28 18:38:43.030435"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.1ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Tai"], ["img_url", "https://c8.alamy.com/comp/M0DK8H/tai-nigiri-sushi-M0DK8H.jpg"], ["ocean_id", 6], ["created_at", "2020-05-28 18:38:43.034813"], ["updated_at", "2020-05-28 18:38:43.034813"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.3ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Scallop"], ["img_url", "https://upload.wikimedia.org/wikipedia/commons/c/cb/Hotate_gai.jpg"], ["ocean_id", 7], ["created_at", "2020-05-28 18:38:43.039148"], ["updated_at", "2020-05-28 18:38:43.039148"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.3ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Aji"], ["img_url", "https://ajisushiissaquah.com/wp-content/uploads/2015/05/aji-sushi-seattle-3.jpg"], ["ocean_id", 1], ["created_at", "2020-05-28 18:38:43.044544"], ["updated_at", "2020-05-28 18:38:43.044544"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Octopus"], ["img_url", "https://previews.123rf.com/images/ostancoff/ostancoff1504/ostancoff150400050/38176372-octopus-sushi-nigiri-isolated-on-white-background.jpg"], ["ocean_id", 3], ["created_at", "2020-05-28 18:38:43.049889"], ["updated_at", "2020-05-28 18:38:43.049889"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Mackrel"], ["img_url", "https://d1rxvdm0rjmjgy.cloudfront.net/srv/images/saba-sushi-main-1600x900.jpg"], ["ocean_id", 5], ["created_at", "2020-05-28 18:38:43.054735"], ["updated_at", "2020-05-28 18:38:43.054735"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.3ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Sweetfish"], ["img_url", "https://live.staticflickr.com/5270/5896850991_daa98cc50e_b.jpg"], ["ocean_id", 6], ["created_at", "2020-05-28 18:38:43.059392"], ["updated_at", "2020-05-28 18:38:43.059392"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Sanma"], ["img_url", "https://upload.wikimedia.org/wikipedia/commons/4/4a/Toro_sanma_aburi-yaki_zushi_1_by_hirotomo.jpg"], ["ocean_id", 7], ["created_at", "2020-05-28 18:38:43.064192"], ["updated_at", "2020-05-28 18:38:43.064192"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Mantis Shrimp"], ["img_url", "https://i.pinimg.com/originals/ed/cd/5f/edcd5fd0500d8708d95ce6240c7827d4.jpg"], ["ocean_id", 1], ["created_at", "2020-05-28 18:38:43.069257"], ["updated_at", "2020-05-28 18:38:43.069257"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Temaki"], ["img_url", "https://images.wisegeek.com/temaki-sushi.jpg"], ["ocean_id", 2], ["created_at", "2020-05-28 18:38:43.073897"], ["updated_at", "2020-05-28 18:38:43.073897"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.3ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.4ms)[0m  [1m[32mINSERT INTO "orders" ("customer_id", "sushi_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["customer_id", 3], ["sushi_id", 16], ["created_at", "2020-05-28 18:38:43.098457"], ["updated_at", "2020-05-28 18:38:43.098457"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.2ms)[0m  [1m[32mINSERT INTO "orders" ("customer_id", "sushi_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["customer_id", 2], ["sushi_id", 20], ["created_at", "2020-05-28 18:38:43.105749"], ["updated_at", "2020-05-28 18:38:43.105749"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.2ms)[0m  [1m[32mINSERT INTO "orders" ("customer_id", "sushi_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["customer_id", 3], ["sushi_id", 19], ["created_at", "2020-05-28 18:38:43.112720"], ["updated_at", "2020-05-28 18:38:43.112720"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.2ms)[0m  [1m[32mINSERT INTO "orders" ("customer_id", "sushi_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["customer_id", 3], ["sushi_id", 13], ["created_at", "2020-05-28 18:38:43.119905"], ["updated_at", "2020-05-28 18:38:43.119905"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.3ms)[0m  [1m[32mINSERT INTO "orders" ("customer_id", "sushi_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["customer_id", 1], ["sushi_id", 8], ["created_at", "2020-05-28 18:38:43.126828"], ["updated_at", "2020-05-28 18:38:43.126828"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.2ms)[0m  [1m[32mINSERT INTO "orders" ("customer_id", "sushi_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["customer_id", 4], ["sushi_id", 9], ["created_at", "2020-05-28 18:38:43.134134"], ["updated_at", "2020-05-28 18:38:43.134134"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.3ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.2ms)[0m  [1m[32mINSERT INTO "orders" ("customer_id", "sushi_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["customer_id", 4], ["sushi_id", 9], ["created_at", "2020-05-28 18:38:43.140665"], ["updated_at", "2020-05-28 18:38:43.140665"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.2ms)[0m  [1m[32mINSERT INTO "orders" ("customer_id", "sushi_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["customer_id", 5], ["sushi_id", 10], ["created_at", "2020-05-28 18:38:43.147511"], ["updated_at", "2020-05-28 18:38:43.147511"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.2ms)[0m  [1m[32mINSERT INTO "orders" ("customer_id", "sushi_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["customer_id", 3], ["sushi_id", 20], ["created_at", "2020-05-28 18:38:43.154723"], ["updated_at", "2020-05-28 18:38:43.154723"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.4ms)[0m  [1m[32mINSERT INTO "orders" ("customer_id", "sushi_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["customer_id", 3], ["sushi_id", 2], ["created_at", "2020-05-28 18:38:43.161718"], ["updated_at", "2020-05-28 18:38:43.161718"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."sushi_id" = $1 AND "reviews"."customer_id" = $2 LIMIT $3[0m  [["sushi_id", 13], ["customer_id", 4], ["LIMIT", 1]]
+  [1m[36mReview Create (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("customer_id", "sushi_id", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["customer_id", 4], ["sushi_id", 13], ["rating", 4], ["created_at", "2020-05-28 18:38:43.175468"], ["updated_at", "2020-05-28 18:38:43.175468"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mReview Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."sushi_id" = $1 AND "reviews"."customer_id" = $2 LIMIT $3[0m  [["sushi_id", 5], ["customer_id", 4], ["LIMIT", 1]]
+  [1m[36mReview Create (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("customer_id", "sushi_id", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["customer_id", 4], ["sushi_id", 5], ["rating", 3], ["created_at", "2020-05-28 18:38:43.184362"], ["updated_at", "2020-05-28 18:38:43.184362"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mReview Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."sushi_id" = $1 AND "reviews"."customer_id" = $2 LIMIT $3[0m  [["sushi_id", 15], ["customer_id", 5], ["LIMIT", 1]]
+  [1m[36mReview Create (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("customer_id", "sushi_id", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["customer_id", 5], ["sushi_id", 15], ["rating", 2], ["created_at", "2020-05-28 18:38:43.192784"], ["updated_at", "2020-05-28 18:38:43.192784"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mReview Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."sushi_id" = $1 AND "reviews"."customer_id" = $2 LIMIT $3[0m  [["sushi_id", 2], ["customer_id", 5], ["LIMIT", 1]]
+  [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("customer_id", "sushi_id", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["customer_id", 5], ["sushi_id", 2], ["rating", 1], ["created_at", "2020-05-28 18:38:43.200739"], ["updated_at", "2020-05-28 18:38:43.200739"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[36mReview Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."sushi_id" = $1 AND "reviews"."customer_id" = $2 LIMIT $3[0m  [["sushi_id", 20], ["customer_id", 5], ["LIMIT", 1]]
+  [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("customer_id", "sushi_id", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["customer_id", 5], ["sushi_id", 20], ["rating", 2], ["created_at", "2020-05-28 18:38:43.208374"], ["updated_at", "2020-05-28 18:38:43.208374"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."sushi_id" = $1 AND "reviews"."customer_id" = $2 LIMIT $3[0m  [["sushi_id", 6], ["customer_id", 5], ["LIMIT", 1]]
+  [1m[36mReview Create (0.3ms)[0m  [1m[32mINSERT INTO "reviews" ("customer_id", "sushi_id", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["customer_id", 5], ["sushi_id", 6], ["rating", 4], ["created_at", "2020-05-28 18:38:43.227060"], ["updated_at", "2020-05-28 18:38:43.227060"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mReview Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."sushi_id" = $1 AND "reviews"."customer_id" = $2 LIMIT $3[0m  [["sushi_id", 10], ["customer_id", 4], ["LIMIT", 1]]
+  [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("customer_id", "sushi_id", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["customer_id", 4], ["sushi_id", 10], ["rating", 3], ["created_at", "2020-05-28 18:38:43.235115"], ["updated_at", "2020-05-28 18:38:43.235115"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."sushi_id" = $1 AND "reviews"."customer_id" = $2 LIMIT $3[0m  [["sushi_id", 17], ["customer_id", 1], ["LIMIT", 1]]
+  [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("customer_id", "sushi_id", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["customer_id", 1], ["sushi_id", 17], ["rating", 1], ["created_at", "2020-05-28 18:38:43.242639"], ["updated_at", "2020-05-28 18:38:43.242639"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.3ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."sushi_id" = $1 AND "reviews"."customer_id" = $2 LIMIT $3[0m  [["sushi_id", 1], ["customer_id", 3], ["LIMIT", 1]]
+  [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("customer_id", "sushi_id", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["customer_id", 3], ["sushi_id", 1], ["rating", 3], ["created_at", "2020-05-28 18:38:43.251226"], ["updated_at", "2020-05-28 18:38:43.251226"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.3ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."sushi_id" = $1 AND "reviews"."customer_id" = $2 LIMIT $3[0m  [["sushi_id", 5], ["customer_id", 3], ["LIMIT", 1]]
+  [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("customer_id", "sushi_id", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["customer_id", 3], ["sushi_id", 5], ["rating", 2], ["created_at", "2020-05-28 18:38:43.259399"], ["updated_at", "2020-05-28 18:38:43.259399"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCustomer Load (0.7ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Destroy (0.3ms)[0m  [1m[31mDELETE FROM "customers" WHERE "customers"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Destroy (0.2ms)[0m  [1m[31mDELETE FROM "customers" WHERE "customers"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Destroy (0.2ms)[0m  [1m[31mDELETE FROM "customers" WHERE "customers"."id" = $1[0m  [["id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Destroy (0.3ms)[0m  [1m[31mDELETE FROM "customers" WHERE "customers"."id" = $1[0m  [["id", 4]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Destroy (0.3ms)[0m  [1m[31mDELETE FROM "customers" WHERE "customers"."id" = $1[0m  [["id", 5]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.7ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Destroy (0.2ms)[0m  [1m[31mDELETE FROM "oceans" WHERE "oceans"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Destroy (0.2ms)[0m  [1m[31mDELETE FROM "oceans" WHERE "oceans"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Destroy (0.3ms)[0m  [1m[31mDELETE FROM "oceans" WHERE "oceans"."id" = $1[0m  [["id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Destroy (0.4ms)[0m  [1m[31mDELETE FROM "oceans" WHERE "oceans"."id" = $1[0m  [["id", 4]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Destroy (0.3ms)[0m  [1m[31mDELETE FROM "oceans" WHERE "oceans"."id" = $1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Destroy (0.2ms)[0m  [1m[31mDELETE FROM "oceans" WHERE "oceans"."id" = $1[0m  [["id", 6]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Destroy (0.2ms)[0m  [1m[31mDELETE FROM "oceans" WHERE "oceans"."id" = $1[0m  [["id", 7]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSushi Load (0.5ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSushi Destroy (0.3ms)[0m  [1m[31mDELETE FROM "sushis" WHERE "sushis"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSushi Destroy (0.2ms)[0m  [1m[31mDELETE FROM "sushis" WHERE "sushis"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSushi Destroy (0.3ms)[0m  [1m[31mDELETE FROM "sushis" WHERE "sushis"."id" = $1[0m  [["id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSushi Destroy (0.2ms)[0m  [1m[31mDELETE FROM "sushis" WHERE "sushis"."id" = $1[0m  [["id", 4]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSushi Destroy (0.1ms)[0m  [1m[31mDELETE FROM "sushis" WHERE "sushis"."id" = $1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSushi Destroy (0.2ms)[0m  [1m[31mDELETE FROM "sushis" WHERE "sushis"."id" = $1[0m  [["id", 6]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSushi Destroy (0.3ms)[0m  [1m[31mDELETE FROM "sushis" WHERE "sushis"."id" = $1[0m  [["id", 7]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSushi Destroy (0.2ms)[0m  [1m[31mDELETE FROM "sushis" WHERE "sushis"."id" = $1[0m  [["id", 8]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSushi Destroy (0.2ms)[0m  [1m[31mDELETE FROM "sushis" WHERE "sushis"."id" = $1[0m  [["id", 9]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSushi Destroy (0.3ms)[0m  [1m[31mDELETE FROM "sushis" WHERE "sushis"."id" = $1[0m  [["id", 10]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSushi Destroy (0.2ms)[0m  [1m[31mDELETE FROM "sushis" WHERE "sushis"."id" = $1[0m  [["id", 11]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSushi Destroy (0.3ms)[0m  [1m[31mDELETE FROM "sushis" WHERE "sushis"."id" = $1[0m  [["id", 12]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSushi Destroy (0.2ms)[0m  [1m[31mDELETE FROM "sushis" WHERE "sushis"."id" = $1[0m  [["id", 13]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSushi Destroy (0.2ms)[0m  [1m[31mDELETE FROM "sushis" WHERE "sushis"."id" = $1[0m  [["id", 14]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSushi Destroy (0.2ms)[0m  [1m[31mDELETE FROM "sushis" WHERE "sushis"."id" = $1[0m  [["id", 15]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSushi Destroy (0.2ms)[0m  [1m[31mDELETE FROM "sushis" WHERE "sushis"."id" = $1[0m  [["id", 16]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSushi Destroy (0.3ms)[0m  [1m[31mDELETE FROM "sushis" WHERE "sushis"."id" = $1[0m  [["id", 17]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSushi Destroy (0.2ms)[0m  [1m[31mDELETE FROM "sushis" WHERE "sushis"."id" = $1[0m  [["id", 18]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSushi Destroy (0.2ms)[0m  [1m[31mDELETE FROM "sushis" WHERE "sushis"."id" = $1[0m  [["id", 19]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSushi Destroy (0.3ms)[0m  [1m[31mDELETE FROM "sushis" WHERE "sushis"."id" = $1[0m  [["id", 20]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.3ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.2ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.2ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.3ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 4]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.2ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 5]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.2ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 6]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.3ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 7]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.2ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 8]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.2ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 9]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.2ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 10]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReview Destroy (0.2ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReview Destroy (0.2ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReview Destroy (0.2ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = $1[0m  [["id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReview Destroy (0.2ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = $1[0m  [["id", 4]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReview Destroy (0.2ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = $1[0m  [["id", 5]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReview Destroy (0.2ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = $1[0m  [["id", 6]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReview Destroy (0.2ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = $1[0m  [["id", 7]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReview Destroy (0.2ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = $1[0m  [["id", 8]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReview Destroy (0.1ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = $1[0m  [["id", 9]]
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReview Destroy (0.2ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = $1[0m  [["id", 10]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Johnny"], ["created_at", "2020-05-28 18:45:11.668713"], ["updated_at", "2020-05-28 18:45:11.668713"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Create (0.2ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Suzy"], ["created_at", "2020-05-28 18:45:11.671419"], ["updated_at", "2020-05-28 18:45:11.671419"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Create (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Mary"], ["created_at", "2020-05-28 18:45:11.673749"], ["updated_at", "2020-05-28 18:45:11.673749"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Create (0.2ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Billy"], ["created_at", "2020-05-28 18:45:11.676401"], ["updated_at", "2020-05-28 18:45:11.676401"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Create (0.2ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Milly"], ["created_at", "2020-05-28 18:45:11.678872"], ["updated_at", "2020-05-28 18:45:11.678872"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Create (0.3ms)[0m  [1m[32mINSERT INTO "oceans" ("name", "created_at", "updated_at", "img_url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "North Atlantic Ocean"], ["created_at", "2020-05-28 18:45:11.681514"], ["updated_at", "2020-05-28 18:45:11.681514"], ["img_url", "https://www.carbonbrief.org/wp-content/uploads/2018/04/north-atlantic-ocean-1.jpg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Create (0.2ms)[0m  [1m[32mINSERT INTO "oceans" ("name", "created_at", "updated_at", "img_url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "South Atlantic Ocean"], ["created_at", "2020-05-28 18:45:11.684160"], ["updated_at", "2020-05-28 18:45:11.684160"], ["img_url", "https://30a.com/wp-content/uploads/2018/05/untitled-design-425.jpg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Create (0.2ms)[0m  [1m[32mINSERT INTO "oceans" ("name", "created_at", "updated_at", "img_url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "North Pacific Ocean"], ["created_at", "2020-05-28 18:45:11.686648"], ["updated_at", "2020-05-28 18:45:11.686648"], ["img_url", "https://images.glaciermedia.ca/polopoly_fs/1.22782394.1505678749!/fileImage/httpImage/image.jpg_gen/derivatives/landscape_804/2017091718-jpg.jpg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Create (0.1ms)[0m  [1m[32mINSERT INTO "oceans" ("name", "created_at", "updated_at", "img_url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "South Pacific Ocean"], ["created_at", "2020-05-28 18:45:11.688983"], ["updated_at", "2020-05-28 18:45:11.688983"], ["img_url", "https://c.stocksy.com/a/Z27900/z9/2172019.jpg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Create (0.2ms)[0m  [1m[32mINSERT INTO "oceans" ("name", "created_at", "updated_at", "img_url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Artic Ocean"], ["created_at", "2020-05-28 18:45:11.691295"], ["updated_at", "2020-05-28 18:45:11.691295"], ["img_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Arctic_ice.jpg/1200px-Arctic_ice.jpg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Create (0.2ms)[0m  [1m[32mINSERT INTO "oceans" ("name", "created_at", "updated_at", "img_url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Indian Ocean"], ["created_at", "2020-05-28 18:45:11.693927"], ["updated_at", "2020-05-28 18:45:11.693927"], ["img_url", "https://upload.wikimedia.org/wikipedia/commons/1/13/2016_Margaret_River_Australia_-_indian_ocean.jpg"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Create (0.2ms)[0m  [1m[32mINSERT INTO "oceans" ("name", "created_at", "updated_at", "img_url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Antarctic Ocean"], ["created_at", "2020-05-28 18:45:11.696384"], ["updated_at", "2020-05-28 18:45:11.696384"], ["img_url", "https://d1hbkx7j13ujdz.cloudfront.net/wp-content/uploads/2018/08/Lets-Explore-the-Antarctic-Ocean-1024x683.jpg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.3ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Yummy Salmon Tummy"], ["img_url", "https://i.redd.it/12cdw2wb55p01.jpg"], ["ocean_id", 14], ["created_at", "2020-05-28 18:45:11.703932"], ["updated_at", "2020-05-28 18:45:11.703932"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Una Tuna"], ["img_url", "https://media-cdn.tripadvisor.com/media/photo-s/06/7e/7b/f0/tuna-nigiri.jpg"], ["ocean_id", 14], ["created_at", "2020-05-28 18:45:11.708729"], ["updated_at", "2020-05-28 18:45:11.708729"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.3ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Eel Meal"], ["img_url", "https://media.gettyimages.com/photos/two-pieces-of-eel-nigiri-sushi-picture-id149058086?s=2048x2048"], ["ocean_id", 11], ["created_at", "2020-05-28 18:45:11.713498"], ["updated_at", "2020-05-28 18:45:11.713498"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Simply Shrimpy"], ["img_url", "https://wfg22p.s3.amazonaws.com/media/dishes/ebi_nigiri_sushi_576-reg.jpg"], ["ocean_id", 13], ["created_at", "2020-05-28 18:45:11.718302"], ["updated_at", "2020-05-28 18:45:11.718302"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.3ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Crab Nab"], ["img_url", "https://sushimi.co.za/wp-content/uploads/2017/09/Nigiri-crab.jpg"], ["ocean_id", 12], ["created_at", "2020-05-28 18:45:11.723627"], ["updated_at", "2020-05-28 18:45:11.723627"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Salmon Roe"], ["img_url", "https://upload.wikimedia.org/wikipedia/commons/8/8f/Salmon_roe_gunkanmaki_of_Moriya_Sakanaya_Uohei.jpg"], ["ocean_id", 9], ["created_at", "2020-05-28 18:45:11.728371"], ["updated_at", "2020-05-28 18:45:11.728371"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Sea Urchin"], ["img_url", "https://planomagazine.com/wp-content/uploads/2017/09/Uni-Sushi-Plano-Magazine-5.jpg"], ["ocean_id", 13], ["created_at", "2020-05-28 18:45:11.732930"], ["updated_at", "2020-05-28 18:45:11.732930"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.3ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Young Yellowtail"], ["img_url", "https://previews.123rf.com/images/andreyst/andreyst1204/andreyst120402361/13126260-closeup-of-a-young-yellow-tail-sushi.jpg"], ["ocean_id", 13], ["created_at", "2020-05-28 18:45:11.737757"], ["updated_at", "2020-05-28 18:45:11.737757"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Amaebi"], ["img_url", "https://i0.wp.com/www.sushifaq.com/wp-content/uploads/2013/07/amaebi.jpg"], ["ocean_id", 13], ["created_at", "2020-05-28 18:45:11.742321"], ["updated_at", "2020-05-28 18:45:11.742321"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Squid"], ["img_url", "https://thumbs.dreamstime.com/z/ika-sushi-17455010.jpg"], ["ocean_id", 13], ["created_at", "2020-05-28 18:45:11.747568"], ["updated_at", "2020-05-28 18:45:11.747568"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.3ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Anago"], ["img_url", "https://media-cdn.tripadvisor.com/media/photo-s/06/ba/c6/f8/itacho-sushi.jpg"], ["ocean_id", 11], ["created_at", "2020-05-28 18:45:11.752608"], ["updated_at", "2020-05-28 18:45:11.752608"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Tai"], ["img_url", "https://c8.alamy.com/comp/M0DK8H/tai-nigiri-sushi-M0DK8H.jpg"], ["ocean_id", 10], ["created_at", "2020-05-28 18:45:11.770090"], ["updated_at", "2020-05-28 18:45:11.770090"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.3ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Scallop"], ["img_url", "https://upload.wikimedia.org/wikipedia/commons/c/cb/Hotate_gai.jpg"], ["ocean_id", 10], ["created_at", "2020-05-28 18:45:11.774726"], ["updated_at", "2020-05-28 18:45:11.774726"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.3ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Aji"], ["img_url", "https://ajisushiissaquah.com/wp-content/uploads/2015/05/aji-sushi-seattle-3.jpg"], ["ocean_id", 13], ["created_at", "2020-05-28 18:45:11.780189"], ["updated_at", "2020-05-28 18:45:11.780189"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Octopus"], ["img_url", "https://previews.123rf.com/images/ostancoff/ostancoff1504/ostancoff150400050/38176372-octopus-sushi-nigiri-isolated-on-white-background.jpg"], ["ocean_id", 11], ["created_at", "2020-05-28 18:45:11.784998"], ["updated_at", "2020-05-28 18:45:11.784998"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.4ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Mackrel"], ["img_url", "https://d1rxvdm0rjmjgy.cloudfront.net/srv/images/saba-sushi-main-1600x900.jpg"], ["ocean_id", 9], ["created_at", "2020-05-28 18:45:11.789821"], ["updated_at", "2020-05-28 18:45:11.789821"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Sweetfish"], ["img_url", "https://live.staticflickr.com/5270/5896850991_daa98cc50e_b.jpg"], ["ocean_id", 12], ["created_at", "2020-05-28 18:45:11.794560"], ["updated_at", "2020-05-28 18:45:11.794560"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Sanma"], ["img_url", "https://upload.wikimedia.org/wikipedia/commons/4/4a/Toro_sanma_aburi-yaki_zushi_1_by_hirotomo.jpg"], ["ocean_id", 10], ["created_at", "2020-05-28 18:45:11.799259"], ["updated_at", "2020-05-28 18:45:11.799259"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.2ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.2ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Mantis Shrimp"], ["img_url", "https://i.pinimg.com/originals/ed/cd/5f/edcd5fd0500d8708d95ce6240c7827d4.jpg"], ["ocean_id", 9], ["created_at", "2020-05-28 18:45:11.803811"], ["updated_at", "2020-05-28 18:45:11.803811"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOcean Load (0.3ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOcean Load (0.1ms)[0m  [1m[34mSELECT "oceans".* FROM "oceans" WHERE "oceans"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mSushi Create (0.3ms)[0m  [1m[32mINSERT INTO "sushis" ("name", "img_url", "ocean_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Temaki"], ["img_url", "https://images.wisegeek.com/temaki-sushi.jpg"], ["ocean_id", 11], ["created_at", "2020-05-28 18:45:11.808903"], ["updated_at", "2020-05-28 18:45:11.808903"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.3ms)[0m  [1m[32mINSERT INTO "orders" ("customer_id", "sushi_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["customer_id", 9], ["sushi_id", 31], ["created_at", "2020-05-28 18:45:11.817392"], ["updated_at", "2020-05-28 18:45:11.817392"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.3ms)[0m  [1m[32mINSERT INTO "orders" ("customer_id", "sushi_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["customer_id", 8], ["sushi_id", 39], ["created_at", "2020-05-28 18:45:11.824641"], ["updated_at", "2020-05-28 18:45:11.824641"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.2ms)[0m  [1m[32mINSERT INTO "orders" ("customer_id", "sushi_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["customer_id", 6], ["sushi_id", 28], ["created_at", "2020-05-28 18:45:11.831259"], ["updated_at", "2020-05-28 18:45:11.831259"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.3ms)[0m  [1m[32mINSERT INTO "orders" ("customer_id", "sushi_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["customer_id", 8], ["sushi_id", 25], ["created_at", "2020-05-28 18:45:11.837940"], ["updated_at", "2020-05-28 18:45:11.837940"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.2ms)[0m  [1m[32mINSERT INTO "orders" ("customer_id", "sushi_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["customer_id", 10], ["sushi_id", 28], ["created_at", "2020-05-28 18:45:11.844990"], ["updated_at", "2020-05-28 18:45:11.844990"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.3ms)[0m  [1m[32mINSERT INTO "orders" ("customer_id", "sushi_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["customer_id", 10], ["sushi_id", 28], ["created_at", "2020-05-28 18:45:11.851341"], ["updated_at", "2020-05-28 18:45:11.851341"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.2ms)[0m  [1m[32mINSERT INTO "orders" ("customer_id", "sushi_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["customer_id", 6], ["sushi_id", 40], ["created_at", "2020-05-28 18:45:11.858056"], ["updated_at", "2020-05-28 18:45:11.858056"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.3ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.2ms)[0m  [1m[32mINSERT INTO "orders" ("customer_id", "sushi_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["customer_id", 9], ["sushi_id", 33], ["created_at", "2020-05-28 18:45:11.864887"], ["updated_at", "2020-05-28 18:45:11.864887"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.3ms)[0m  [1m[32mINSERT INTO "orders" ("customer_id", "sushi_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["customer_id", 6], ["sushi_id", 25], ["created_at", "2020-05-28 18:45:11.871104"], ["updated_at", "2020-05-28 18:45:11.871104"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[36mOrder Create (0.2ms)[0m  [1m[32mINSERT INTO "orders" ("customer_id", "sushi_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["customer_id", 6], ["sushi_id", 23], ["created_at", "2020-05-28 18:45:11.878011"], ["updated_at", "2020-05-28 18:45:11.878011"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  [1m[36mReview Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."sushi_id" = $1 AND "reviews"."customer_id" = $2 LIMIT $3[0m  [["sushi_id", 28], ["customer_id", 7], ["LIMIT", 1]]
+  [1m[36mReview Create (0.3ms)[0m  [1m[32mINSERT INTO "reviews" ("customer_id", "sushi_id", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["customer_id", 7], ["sushi_id", 28], ["rating", 4], ["created_at", "2020-05-28 18:45:11.886765"], ["updated_at", "2020-05-28 18:45:11.886765"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.3ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  [1m[36mReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."sushi_id" = $1 AND "reviews"."customer_id" = $2 LIMIT $3[0m  [["sushi_id", 38], ["customer_id", 6], ["LIMIT", 1]]
+  [1m[36mReview Create (0.3ms)[0m  [1m[32mINSERT INTO "reviews" ("customer_id", "sushi_id", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["customer_id", 6], ["sushi_id", 38], ["rating", 4], ["created_at", "2020-05-28 18:45:11.894617"], ["updated_at", "2020-05-28 18:45:11.894617"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.3ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  [1m[36mReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."sushi_id" = $1 AND "reviews"."customer_id" = $2 LIMIT $3[0m  [["sushi_id", 33], ["customer_id", 6], ["LIMIT", 1]]
+  [1m[36mReview Create (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("customer_id", "sushi_id", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["customer_id", 6], ["sushi_id", 33], ["rating", 4], ["created_at", "2020-05-28 18:45:11.915361"], ["updated_at", "2020-05-28 18:45:11.915361"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.3ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."sushi_id" = $1 AND "reviews"."customer_id" = $2 LIMIT $3[0m  [["sushi_id", 30], ["customer_id", 7], ["LIMIT", 1]]
+  [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("customer_id", "sushi_id", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["customer_id", 7], ["sushi_id", 30], ["rating", 3], ["created_at", "2020-05-28 18:45:11.924537"], ["updated_at", "2020-05-28 18:45:11.924537"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.3ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  [1m[36mReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."sushi_id" = $1 AND "reviews"."customer_id" = $2 LIMIT $3[0m  [["sushi_id", 28], ["customer_id", 6], ["LIMIT", 1]]
+  [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("customer_id", "sushi_id", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["customer_id", 6], ["sushi_id", 28], ["rating", 5], ["created_at", "2020-05-28 18:45:11.933602"], ["updated_at", "2020-05-28 18:45:11.933602"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."sushi_id" = $1 AND "reviews"."customer_id" = $2 LIMIT $3[0m  [["sushi_id", 30], ["customer_id", 9], ["LIMIT", 1]]
+  [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("customer_id", "sushi_id", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["customer_id", 9], ["sushi_id", 30], ["rating", 1], ["created_at", "2020-05-28 18:45:11.941464"], ["updated_at", "2020-05-28 18:45:11.941464"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  [1m[36mReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."sushi_id" = $1 AND "reviews"."customer_id" = $2 LIMIT $3[0m  [["sushi_id", 34], ["customer_id", 8], ["LIMIT", 1]]
+  [1m[36mReview Create (0.3ms)[0m  [1m[32mINSERT INTO "reviews" ("customer_id", "sushi_id", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["customer_id", 8], ["sushi_id", 34], ["rating", 5], ["created_at", "2020-05-28 18:45:11.949508"], ["updated_at", "2020-05-28 18:45:11.949508"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[36mReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."sushi_id" = $1 AND "reviews"."customer_id" = $2 LIMIT $3[0m  [["sushi_id", 40], ["customer_id", 10], ["LIMIT", 1]]
+  [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("customer_id", "sushi_id", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["customer_id", 10], ["sushi_id", 40], ["rating", 5], ["created_at", "2020-05-28 18:45:11.958217"], ["updated_at", "2020-05-28 18:45:11.958217"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.2ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."sushi_id" = $1 AND "reviews"."customer_id" = $2 LIMIT $3[0m  [["sushi_id", 29], ["customer_id", 10], ["LIMIT", 1]]
+  [1m[36mReview Create (0.3ms)[0m  [1m[32mINSERT INTO "reviews" ("customer_id", "sushi_id", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["customer_id", 10], ["sushi_id", 29], ["rating", 5], ["created_at", "2020-05-28 18:45:11.966251"], ["updated_at", "2020-05-28 18:45:11.966251"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mSushi Load (0.1ms)[0m  [1m[34mSELECT "sushis".* FROM "sushis" WHERE "sushis"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  [1m[36mReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."sushi_id" = $1 AND "reviews"."customer_id" = $2 LIMIT $3[0m  [["sushi_id", 27], ["customer_id", 8], ["LIMIT", 1]]
+  [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("customer_id", "sushi_id", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["customer_id", 8], ["sushi_id", 27], ["rating", 2], ["created_at", "2020-05-28 18:45:11.973324"], ["updated_at", "2020-05-28 18:45:11.973324"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
