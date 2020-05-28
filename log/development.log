@@ -20781,3 +20781,26 @@ Completed 200 OK in 33ms (Views: 28.0ms | ActiveRecord: 0.6ms | Allocations: 114
   [1m[36mReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."sushi_id" = $1 AND "reviews"."customer_id" = $2 LIMIT $3[0m  [["sushi_id", 49], ["customer_id", 13], ["LIMIT", 1]]
   [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("customer_id", "sushi_id", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["customer_id", 13], ["sushi_id", 49], ["rating", 1], ["created_at", "2020-05-28 19:02:48.140041"], ["updated_at", "2020-05-28 19:02:48.140041"]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2020-05-28 15:35:29 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 330)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 109)
+Completed 200 OK in 44ms (Views: 39.1ms | ActiveRecord: 0.0ms | Allocations: 20576)
+
+
+Started GET "/customers" for ::1 at 2020-05-28 15:35:34 -0400
+Processing by CustomersController#index as HTML
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (1.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:8
+  Rendered customers/index.html.erb within layouts/application (Duration: 13.2ms | Allocations: 3933)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 6)
+Completed 200 OK in 31ms (Views: 20.9ms | ActiveRecord: 4.9ms | Allocations: 14861)
+
+
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE "myapp_development" ENCODING = 'utf8'[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'utf8'[0m
